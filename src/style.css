@@ -9,10 +9,17 @@ html {
 body {
     display: flex;
     flex-direction: column;
-    width: 95%;
+    width: 100%;
     max-width: 600px;
     padding: 1rem;
 }
+
+a {
+    text-decoration: underline;
+    color: #47CB00;
+
+
+  }
 h1 {
     font-weight: bold;
     margin: 0px;
@@ -22,6 +29,21 @@ p {
     margin-bottom: 15px;
 
 }
+
+/* Define a keyframe animation for the wiggle effect */
+@keyframes wiggle {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(-5deg); }
+    75% { transform: rotate(3deg); }
+    100% { transform: rotate(0deg); }
+  }
+  
+  /* Apply the animation on hover */
+  .listItem img:hover, img:active {
+    animation: wiggle 0.5s ease-in-out;
+  }
+
 .date {
     color: #7a7a7a;
 }
@@ -40,6 +62,7 @@ p {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    text-align: center;
     color: white;
     font-size: larger;
 }

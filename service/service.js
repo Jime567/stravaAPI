@@ -37,7 +37,6 @@ cron.schedule('*/5 * * * *', () => {
 
 // JSON parsing middleware
 app.use(express.json());
-app.use(cors());
 
 // router for service endpoints
 const apiRouter = express.Router();

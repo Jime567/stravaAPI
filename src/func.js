@@ -2,8 +2,42 @@ async function main() {
   try {
     let activity = await getActivity();
     document.querySelector('.title').innerHTML = activity.name;
+    const title = document.querySelector('.title');
+    const linkElement = document.createElement('a');
+    linkElement.href = "https://www.strava.com/activities/" + activity.id;
+    linkElement.target = '_blank';
+    linkElement.innerHTML = title.innerHTML;
+    title.innerHTML = '';
+    title.appendChild(linkElement);
 
     document.querySelector('.headerImage').src = activity.photos.primary.urls['600'];
+    if (activity.photos.primary.urls['600'] == null) {
+      switch (activity.type) {
+        case "Ride":
+          document.querySelector('.headerImage').src = "assets/mtbPlaceholder.webp";
+          break;
+        case "Run":
+          document.querySelector('.headerImage').src = "assets/runPlaceholder.webp";
+          break;
+        case "Hike":
+          document.querySelector('.headerImage').src = "assets/hikePlaceholder.webp";
+          break;
+        case "Walk":
+          document.querySelector('.headerImage').src = "assets/hikePlaceholder.webp";
+          break;
+        case "Swim":
+          document.querySelector('.headerImage').src = "assets/swimPlaceholder.webp";
+          break;
+        case "AlpineSki":
+          document.querySelector('.headerImage').src = "assets/skiPlaceholder.webp";
+          break;
+        case "Snowshoe":
+          document.querySelector('.headerImage').src = "assets/snowshoePlaceholder.webp";
+          break;
+        default:
+          document.querySelector('.headerImage').src = "assets/mtbPlaceholder.webp";
+      }
+    }
 
     const date = new Date(activity.start_date_local);
     // Format the date using Intl.DateTimeFormat
@@ -17,7 +51,7 @@ async function main() {
       timeZone: 'UTC' 
     };
     const formattedDate = new Intl.DateTimeFormat('en-US', options).format(date);
-    document.querySelector('.date').innerHTML = formattedDate;
+    document.querySelector('.date').innerHTML = activity.type + " on " + formattedDate;
 
     document.querySelector('.desc').innerHTML = activity.description;
 
@@ -45,7 +79,7 @@ main();
 
 async function getActivity() {
   try {
-    const response = await fetch('http://localhost:4100/api/stravaLatest');
+    const response = await fetch('https://stravaapi.jamesephelps.com/api/stravaLatest');
 
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
