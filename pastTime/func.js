@@ -100,7 +100,7 @@ async function makeHistoryItem(activity) {
   // Create anchor element
   var anchor = document.createElement('a');
   anchor.href = "https://www.strava.com/activities/" + activity.id;
-
+  anchor.target = '_blank';
   // Create heading element inside the anchor
   var heading = document.createElement('h4');
   heading.textContent = activity.name;
