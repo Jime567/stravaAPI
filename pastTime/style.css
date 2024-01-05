@@ -17,17 +17,20 @@ body {
 a {
     text-decoration: underline;
     color: #47CB00;
-
-
   }
+
 h1 {
     font-weight: bold;
     margin: 0px;
 }
+
+h4 {
+    margin-right: 10px;
+}
+
 p {
     margin: 0px;
     margin-bottom: 15px;
-
 }
 
 /* Define a keyframe animation for the wiggle effect */
@@ -71,6 +74,33 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.history {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.historyItem p {
+    margin: 0px;
+}
+
+.historyItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    color: white;
+}
+
+.historyIcon {
+    width: 45px;
+    height: 45px;
+    margin: 10px;
+    margin-right: 15px;
+    margin-left: 0px;
 }
 
 .listItem p {

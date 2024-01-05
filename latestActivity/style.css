@@ -50,6 +50,7 @@ p {
 .headerImage {
     justify-self: center;
     max-width: 100%;
+    border-radius: 20px;
 }
 
 .desc {
