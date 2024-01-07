@@ -1,13 +1,4 @@
-window.addEventListener('message', function(event) {
-  console.log("Event1: " + event.data);
-  if (event.data === 'getIframeHeight1') {
-    var iframeContentHeight1 = document.documentElement.scrollHeight;
-    window.parent.postMessage({
-      type: 'iframeHeight1',
-      height: iframeContentHeight1
-      }, '*');
-    }
-});
+
 
 async function main() {
   try {
@@ -151,3 +142,13 @@ async function makeHistoryItem(activity) {
   document.querySelector('.history').appendChild(container);
 }
 
+window.addEventListener('message', function(event) {
+  console.log("Event1: " + event.data);
+  if (event.data === 'getIframeHeight1') {
+    var iframeContentHeight1 = document.documentElement.scrollHeight;
+    window.parent.postMessage({
+      type: 'iframeHeight1',
+      height: iframeContentHeight1
+      }, '*');
+    }
+});
