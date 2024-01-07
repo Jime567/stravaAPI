@@ -1,10 +1,10 @@
 window.addEventListener('message', function(event) {
-  console.log("Event: " + event.data);
+  console.log("Event1: " + event.data);
   if (event.data === 'getIframeHeight1') {
-    var iframeContentHeight = document.documentElement.scrollHeight;
+    var iframeContentHeight1 = document.documentElement.scrollHeight;
     window.parent.postMessage({
       type: 'iframeHeight1',
-      height: iframeContentHeight
+      height: iframeContentHeight1
       }, '*');
     }
 });
