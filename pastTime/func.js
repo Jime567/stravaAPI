@@ -71,6 +71,11 @@ async function makeHistory() {
   for (var i = 1; i < 5; i++) {
     await makeHistoryItem(history[i]);
   }
+  var iframeContentHeight1 = document.documentElement.scrollHeight;
+  window.parent.postMessage({
+    type: 'iframeHeight1',
+    height: iframeContentHeight1
+    }, '*'); 
 }
 
 async function makeHistoryItem(activity) {
