@@ -1,3 +1,14 @@
+window.addEventListener('message', function(event) {
+  console.log("Event: " + event.data);
+  if (event.data === 'getIframeHeight1') {
+    var iframeContentHeight = document.documentElement.scrollHeight;
+    window.parent.postMessage({
+      type: 'iframeHeight1',
+      height: iframeContentHeight
+      }, '*');
+    }
+});
+
 async function main() {
   try {
     let stats = await getStats();
@@ -52,6 +63,7 @@ async function getHistory() {
     throw error; 
   }
 }
+
 
 async function makeHistory() {
   var history = await getHistory();
