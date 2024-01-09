@@ -86,9 +86,7 @@ async function main() {
     window.parent.postMessage({
       type: 'iframeHeight',
       height: iframeContentHeight
-      }, '*');
-    }
-    
+      }, '*');    
   } catch (error) {
     console.error('Error in main:', error);
   }
