@@ -52,33 +52,34 @@ async function main() {
     document.querySelector('#elevation').innerHTML = (Number(activity.total_elevation_gain)*3.28084).toFixed(0) + " Ft";
     document.querySelector('#calories').innerHTML = activity.calories + " cal";
 
-    document.querySelector('.headerImage').src = activity.photos.primary.urls['600'];
-    if (activity.photos.primary.urls['600'] == null) {
-      switch (activity.type) {
-        case "Ride":
-          document.querySelector('.headerImage').src = "assets/mtbPlaceholder.webp";
-          break;
-        case "Run":
-          document.querySelector('.headerImage').src = "assets/runPlaceholder.webp";
-          break;
-        case "Hike":
-          document.querySelector('.headerImage').src = "assets/hikePlaceholder.webp";
-          break;
-        case "Walk":
-          document.querySelector('.headerImage').src = "assets/hikePlaceholder.webp";
-          break;
-        case "Swim":
-          document.querySelector('.headerImage').src = "assets/swimPlaceholder.webp";
-          break;
-        case "AlpineSki":
-          document.querySelector('.headerImage').src = "assets/skiPlaceholder.webp";
-          break;
-        case "Snowshoe":
-          document.querySelector('.headerImage').src = "assets/snowshoePlaceholder.webp";
-          break;
-        default:
-          document.querySelector('.headerImage').src = "assets/mtbPlaceholder.webp";
-      }
+    if (typeof activity.photos.primary !== 'undefined' && activity.photos.primary !== null) {
+      document.querySelector('.headerImage').src = activity.photos.primary.urls['600'];
+    } else {
+        switch (activity.type) {
+          case "Ride":
+            document.querySelector('.headerImage').src = "assets/mtbPlaceholder.webp";
+            break;
+          case "Run":
+            document.querySelector('.headerImage').src = "assets/runPlaceholder.webp";
+            break;
+          case "Hike":
+            document.querySelector('.headerImage').src = "assets/hikePlaceholder.webp";
+            break;
+          case "Walk":
+            document.querySelector('.headerImage').src = "assets/hikePlaceholder.webp";
+            break;
+          case "Swim":
+            document.querySelector('.headerImage').src = "assets/swimPlaceholder.webp";
+            break;
+          case "AlpineSki":
+            document.querySelector('.headerImage').src = "assets/skiPlaceholder.webp";
+            break;
+          case "Snowshoe":
+            document.querySelector('.headerImage').src = "assets/snowshoePlaceholder.webp";
+            break;
+          default:
+            document.querySelector('.headerImage').src = "assets/mtbPlaceholder.webp";
+        }
     }
     
   } catch (error) {
