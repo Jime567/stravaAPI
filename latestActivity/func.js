@@ -81,6 +81,13 @@ async function main() {
             document.querySelector('.headerImage').src = "assets/mtbPlaceholder.webp";
         }
     }
+
+    var iframeContentHeight = document.documentElement.scrollHeight;
+    window.parent.postMessage({
+      type: 'iframeHeight',
+      height: iframeContentHeight
+      }, '*');
+    }
     
   } catch (error) {
     console.error('Error in main:', error);
