@@ -11,7 +11,8 @@ body {
     flex-direction: column;
     width: 100%;
     max-width: 600px;
-    padding: 1rem;
+    padding: 0;
+    margin: 0;
 }
 
 a {

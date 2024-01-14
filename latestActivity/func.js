@@ -1,7 +1,7 @@
 window.addEventListener('message', function(event) {
   console.log("Event: " + event.data);
   if (event.data === 'getIframeHeight') {
-    var iframeContentHeight = document.documentElement.scrollHeight;
+    var iframeContentHeight = document.documentElement.body.scrollHeight;
     window.parent.postMessage({
       type: 'iframeHeight',
       height: iframeContentHeight
@@ -82,7 +82,7 @@ async function main() {
         }
     }
 
-    var iframeContentHeight = document.documentElement.scrollHeight;
+    var iframeContentHeight = document.documentElement.body.scrollHeight;
     window.parent.postMessage({
       type: 'iframeHeight',
       height: iframeContentHeight
