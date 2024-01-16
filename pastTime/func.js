@@ -110,8 +110,11 @@ async function makeHistoryItem(activity) {
     case "Snowshoe":
       image.src = "assets/snowshoe.png";
       break;
+    case "VirtualRide":
+      image.src = "assets/indoor.png";
+      break;
     default:
-      image.src = "running.png";
+      image.src = "assets/running.png";
   }
 
   // Create anchor element

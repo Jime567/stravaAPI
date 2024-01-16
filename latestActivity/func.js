@@ -78,6 +78,9 @@ async function main() {
           case "Snowshoe":
             document.querySelector('.headerImage').src = "assets/snowshoePlaceholder.webp";
             break;
+          case "VirtualRide":
+            document.querySelector('.headerImage').src = "assets/mtbPlaceholder.webp";
+            break;
           default:
             document.querySelector('.headerImage').src = "assets/mtbPlaceholder.webp";
         }
