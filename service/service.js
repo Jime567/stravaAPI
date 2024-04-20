@@ -16,6 +16,11 @@ let stravaActivities;
 let stravaStats;
 let stravaLatest;
 
+if (!clientID || !clientSecret || !refreshToken) {
+    console.error('Missing environment variables');
+    process.exit(1);
+}
+
 async function getStravaData() {
     try {
         let accessToken = await refreshAccessToken(clientID, clientSecret, refreshToken);
@@ -31,7 +36,7 @@ async function getStravaData() {
 getStravaData();
 
 // get stuff from strava every 5 minutes
-cron.schedule('*/5 * * * *', () => {
+cron.schedule('*/15 * * * *', () => {
     getStravaData();
 });
 
