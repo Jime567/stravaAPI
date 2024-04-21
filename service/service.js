@@ -35,7 +35,7 @@ async function getStravaData() {
 
 getStravaData();
 
-// get stuff from strava every 5 minutes
+// get stuff from strava every 15 minutes
 cron.schedule('*/15 * * * *', () => {
     getStravaData();
 });
