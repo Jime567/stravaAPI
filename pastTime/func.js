@@ -71,8 +71,8 @@ async function makeHistory() {
   console.log(history);
   var j = 1;
   for (var i = 1; i < 5; i++) {
-    if (!(history[j].type.toLowerCase() in dontIncludeActivities)) {
-      await makeHistoryItem(history[i]);
+    if (!(dontIncludeActivities.includes(history[j].type.toLowerCase()))) {
+      await makeHistoryItem(history[j]);
     } else { i--;}
     j++;
   }
