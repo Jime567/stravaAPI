@@ -118,7 +118,7 @@ async function getStravaLatest(accessToken, activityId) {
 
 async function getStravaActivities(accessToken) {
     const apiUrl = 'https://www.strava.com/api/v3/athlete/activities';
-    const queryParams = 'per_page=5'; //get 5 most recent activities
+    const queryParams = 'per_page=15'; //get 15 most recent activities
     try {
         const response = await fetch(`${apiUrl}?${queryParams}`, {
             method: 'GET',

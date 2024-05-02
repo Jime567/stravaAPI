@@ -1,3 +1,5 @@
+var dontIncludeActivities = ["yoga"];
+
 window.addEventListener('message', function(event) {
   console.log("Event1: " + event.data);
   if (event.data === 'getIframeHeight1') {
@@ -64,13 +66,17 @@ async function getHistory() {
   }
 }
 
-
 async function makeHistory() {
   var history = await getHistory();
   console.log(history);
+  var j = 1;
   for (var i = 1; i < 5; i++) {
-    await makeHistoryItem(history[i]);
+    if (!(history[j].type.toLowerCase() in dontIncludeActivities)) {
+      await makeHistoryItem(history[i]);
+    } else { i--;}
+    j++;
   }
+
   var iframeContentHeight1 = document.documentElement.scrollHeight;
   window.parent.postMessage({
     type: 'iframeHeight1',
