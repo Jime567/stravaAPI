@@ -14,13 +14,13 @@ window.addEventListener('message', function(event) {
 async function main() {
   try {
     let stats = await getStats();
-    document.querySelector('#mtb').innerHTML = (Number(stats.recent_ride_totals.distance)/1609).toFixed(0) + " miles";
-    document.querySelector('#swim').innerHTML = (Number(stats.recent_swim_totals.distance)).toFixed(0) + " meters";
-    document.querySelector('#run').innerHTML = (Number(stats.recent_run_totals.distance)/1609).toFixed(0) + " miles";
+    document.querySelector('#mtb').innerHTML = (Number(stats.recent_ride_totals.distance)/1609).toFixed(0) + " mi";
+    document.querySelector('#swim').innerHTML = (Number(stats.recent_swim_totals.distance)).toFixed(0) + " m";
+    document.querySelector('#run').innerHTML = (Number(stats.recent_run_totals.distance)/1609).toFixed(0) + " mi";
 
-    document.querySelector('#mtbYear').innerHTML = (Number(stats.ytd_ride_totals.distance)/1609).toFixed(0) + " miles";
-    document.querySelector('#swimYear').innerHTML = (Number(stats.ytd_swim_totals.distance)).toFixed(0) + " meters";
-    document.querySelector('#runYear').innerHTML = (Number(stats.ytd_run_totals.distance)/1609).toFixed(0) + " miles";
+    document.querySelector('#mtbYear').innerHTML = (Number(stats.ytd_ride_totals.distance)/1609).toFixed(0) + " mi";
+    document.querySelector('#swimYear').innerHTML = (Number(stats.ytd_swim_totals.distance)).toFixed(0) + " m";
+    document.querySelector('#runYear').innerHTML = (Number(stats.ytd_run_totals.distance)/1609).toFixed(0) + " mi";
 
     
 
