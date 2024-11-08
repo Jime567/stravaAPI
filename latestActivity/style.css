@@ -91,6 +91,21 @@ p {
     padding: 5px;
 }
 
+/* changes cursor */
+html {
+  margin: 0px;
+  min-width: 100%;
+  padding: 0px !important;
+  cursor: url("https://jamesephelps.com/wp-content/uploads/2024/06/cursor.png"), auto;
+}
+
+a:hover {
+	margin: 0px;
+  min-width: 100%;
+  padding: 0px !important;
+  cursor: url("https://jamesephelps.com/wp-content/uploads/2024/11/hand-cursor.png") 7 0, auto;
+}
+
 #elevation {
     padding: 5px;
 }
